@@ -22,70 +22,184 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
+				<!-- left column  -->
 				<div class="col-md-2"></div>
 
-				<div class="background col-md-8">
-					<div class="form-group formStyle">
-						<h1>Make a Reservation</h1>
-						<label for="name">Name</label>
-						<input
-							type="text"
-							name="name"
-							id="name"
-							placeholder="Name"
-							class="form-control"
-						/>
+				<!-- middle column  -->
+				<div class="col-md-8">
+					<!-- accordion  -->
+					<div class="accordion" id="accordionExample">
+						<!-- accordion resturant reservation -->
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0">
+									<button
+										type="button"
+										class="btn btn-link"
+										data-toggle="collapse"
+										data-target="#collapseOne"
+									>
+										<i class="fa fa-plus"></i> Making a Reservation
+									</button>
+								</h2>
+							</div>
+							<!-- accordion resturant reservation body content-->
+							<div
+								id="collapseOne"
+								class="collapse show"
+								aria-labelledby="headingOne"
+								data-parent="#accordionExample"
+							>
+								<div class="background">
+									<form class="form-group formStyle" id="form">
+										<h1>Make a Reservation</h1>
+										<label for="name">Name</label>
+										<input
+											type="text"
+											name="name"
+											id="name"
+											placeholder="Name"
+											class="form-control"
+										/>
 
-						<label for="">Email Address</label>
-						<input
-							type="email"
-							class="form-control"
-							name=""
-							id=""
-							aria-describedby="emailHelpId"
-							placeholder="example@hotmail.co.uk"
-						/>
+										<label for="">Email Address</label>
+										<input
+											type="email"
+											class="form-control"
+											name="email"
+											id="email"
+											aria-describedby="emailHelpId"
+											placeholder="example@hotmail.co.uk"
+										/>
 
-						<label for="partySize">Party Size</label>
-						<select name="" class="partySize form-control"></select>
+										<label for="partySize">Party Size</label>
+										<select
+											name=""
+											class="form-control"
+											id="partySize"
+										></select>
 
-						<label for="date">Date</label>
-						<input type="date" name="date" id="date" class="form-control" />
+										<label for="date">Date</label>
+										<input
+											type="date"
+											name="date"
+											id="date"
+											class="form-control"
+										/>
 
-						<label for="time">Time</label>
-						<input type="time" name="time" id="time" class="form-control" />
+										<label for="time">Time</label>
+										<input
+											type="time"
+											name="time"
+											id="time"
+											class="form-control"
+										/>
 
-						<label for="location">location</label>
-						<select name="" class="location form-control">
-							<option value="">See Below</option>
-							<option value="london">London</option>
-							<option value="stamford">Stamford</option>
-							<option value="glasgow">Glasgow</option>
-							<option value="rome">Rome</option>
-							<option value="oslo">Oslo</option>
-						</select>
+										<label for="location">location</label>
+										<select
+											name="location"
+											class="location form-control"
+											id="location"
+										>
+											<option value="">See Below</option>
+											<option value="london">London</option>
+											<option value="stamford">Stamford</option>
+											<option value="glasgow">Glasgow</option>
+											<option value="rome">Rome</option>
+											<option value="oslo">Oslo</option>
+										</select>
 
-						<label for="contactNumber">Contact Number</label>
-						<input
-							type="tel"
-							name="contactNumber"
-							id="contactNumber"
-							placeholder="020 5701 7892"
-							class="form-control"
-						/>
+										<label for="contactNumber">Contact Number</label>
+										<input
+											type="tel"
+											name="contactNumber"
+											id="contactNumber"
+											placeholder="020 5701 7892"
+											class="form-control"
+										/>
 
-						<label for="my-textarea">Text</label>
-						<textarea
-							id="my-textarea"
-							class="form-control"
-							name=""
-							rows="3"
-							class="form-control"
-						></textarea>
+										<label for="my-textarea">Text</label>
+										<textarea
+											id="my-textarea"
+											class="form-control"
+											name="textarea"
+											rows="3"
+											class="form-control"
+										></textarea>
 
-						<button type="submit" class="btn btn-primary">Submit</button>
+										<button
+											type="submit"
+											class="btn btn-primary"
+											id="resSubmit"
+										>
+											Submit
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+
+						<!-- accordion checking resturant reservation -->
+						<div class="card">
+							<div class="card-header" id="headingTwo">
+								<h2 class="mb-0">
+									<button
+										type="button"
+										class="btn btn-link collapsed"
+										data-toggle="collapse"
+										data-target="#collapseTwo"
+									>
+										<i class="fa fa-plus"></i> Checking a Reservation
+									</button>
+								</h2>
+							</div>
+							<!-- accordion checking resturant reservation body content-->
+							<div
+								id="collapseTwo"
+								class="collapse"
+								aria-labelledby="headingTwo"
+								data-parent="#accordionExample"
+							>
+								<div class="background2" style="padding: 5rem">
+									<h2
+										style="
+											display: flex;
+											justify-content: center;
+											align-items: center;
+											margin: 3rem auto;
+											color: white;
+										"
+									>
+										Check your Reservation and make changes
+									</h2>
+
+									<div style="display: flex; justify-content: center">
+										<input
+											type="text"
+											name=""
+											id=""
+											class="todo-input"
+											placeholder="Please enter your reference number"
+										/>
+										<button
+											type="submit"
+											class="todo-button"
+											style="height: 40px"
+										>
+											<i class="fa fa-plus-square" aria-hidden="true"></i>
+										</button>
+
+										<div class="todo-container">
+											<ul class="todo-list"></ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+
+				<!-- right column  -->
 				<div class="col-md-2"></div>
 			</div>
 		</div>
@@ -114,5 +228,7 @@
 		></script>
 		<!-- javascript file -->
 		<script src="javascript.js"></script>
+		<!-- sweetalert2 modals -->
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</body>
 </html>

@@ -20,21 +20,56 @@ html {
 	background-size: cover;
 	position: relative;
 	height: 80vh;
-	margin: 10vh 0;
+	margin: 5vh 0;
+}
+
+.background2 {
+	background-image: url(img/resturantBike.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	height: 80vh;
+	margin: 5vh 0;
+	opacity: 0.7;
 }
 
 .form-group {
 	width: 50%;
 	position: absolute;
 	right: 0;
-	padding: 2rem;
+	padding: 4rem;
 	/* margin-top: -4rem; */
 	height: 80vh;
 }
 
 .formStyle {
-	border: 2px solid black;
-	box-shadow: 10px 10px 10px blue;
+	border: 2px solid gray;
+	/* box-shadow: 10px 10px 10px lightblue; */
 	background: gray;
 	opacity: 0.7;
+}
+
+input,
+select {
+	margin-bottom: 1rem;
+}
+
+.todo-input,
+.todo-button {
+	padding: 0.5rem;
+	font-size: 2rem;
+	border: none;
+	background: white;
+}
+
+.todo-button {
+	color: green;
+	background: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.todo-button:hover {
+	background-color: green;
+	color: white;
 }
