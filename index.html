@@ -46,12 +46,12 @@
 							<!-- accordion resturant reservation body content-->
 							<div
 								id="collapseOne"
-								class="collapse show"
+								class="collapse"
 								aria-labelledby="headingOne"
 								data-parent="#accordionExample"
 							>
 								<div class="background">
-									<form class="form-group formStyle" id="form">
+									<div class="form-group formStyle" id="form">
 										<h1>Make a Reservation</h1>
 										<label for="name">Name</label>
 										<input
@@ -126,15 +126,16 @@
 											rows="3"
 											class="form-control"
 										></textarea>
-
-										<button
-											type="submit"
-											class="btn btn-primary"
-											id="resSubmit"
-										>
-											Submit
-										</button>
-									</form>
+										<div style="display: flex; justify-content: space-evenly">
+											<button
+												type="submit"
+												class="btn btn-primary"
+												id="resSubmit"
+											>
+												Submit
+											</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -145,7 +146,7 @@
 								<h2 class="mb-0">
 									<button
 										type="button"
-										class="btn btn-link collapsed"
+										class="btn btn-link"
 										data-toggle="collapse"
 										data-target="#collapseTwo"
 									>
@@ -156,7 +157,7 @@
 							<!-- accordion checking resturant reservation body content-->
 							<div
 								id="collapseTwo"
-								class="collapse"
+								class="collapse show"
 								aria-labelledby="headingTwo"
 								data-parent="#accordionExample"
 							>
@@ -178,20 +179,32 @@
 											type="text"
 											name=""
 											id=""
-											class="todo-input"
-											placeholder="Please enter your reference number"
+											class="resCheck-input"
+											placeholder="Reference Number"
 										/>
 										<button
 											type="submit"
-											class="todo-button"
+											class="resCheck-button"
 											style="height: 40px"
 										>
 											<i class="fa fa-plus-square" aria-hidden="true"></i>
 										</button>
+									</div>
 
-										<div class="todo-container">
-											<ul class="todo-list"></ul>
-										</div>
+									<div class="todo-container">
+										<ul class="todo-list">
+											<!-- <div class="todo">
+												<li>tree</li>
+												<button class="complete-btn">
+													<i
+														class="fas fa-check"
+														aria-hidden="true"
+													></i></button
+												><button class="trash-btn">
+													<i class="fas fa-trash" aria-hidden="true"></i>
+												</button>
+											</div> -->
+										</ul>
 									</div>
 								</div>
 							</div>
