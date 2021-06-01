@@ -1,9 +1,13 @@
-// ******************************* making reservation *******************************
+// ******************************* making a reservation *******************************
+
+// submit button
 
 let submitBtn = document.querySelector("#resSubmit");
 submitBtn.addEventListener("click", reservationResult);
 
 // look to have all inputs in one function and have them passed to the modal popup
+
+// reservation fields
 
 function reservationResult() {
 	let glass = {
@@ -21,6 +25,8 @@ function reservationResult() {
 	confirmRev(glass);
 	saveLocalTodos(glass);
 }
+
+// confirmaiton reservation popup
 
 function confirmRev(glass) {
 	Swal.fire({
@@ -62,6 +68,8 @@ function confirmRev(glass) {
 	setTimeout(reset, 10000);
 }
 
+// reset form after reservation completed
+
 function reset() {
 	names = document.getElementById("name").value = "";
 	email = document.getElementById("email").value = "";
@@ -84,16 +92,23 @@ $(function () {
 // save reservation to localstorage
 
 function saveLocalTodos(glass) {
-	localStorage.setItem("reservation", JSON.stringify(glass.name));
+	localStorage.setItem("reservation", JSON.stringify(glass));
 }
 
 // ******************************* checking reservation *******************************
 
+// html element which will comtain reservation on webpage
+
 const todoList = document.querySelector(".todo-list");
 
+// reservation check input
 let refValue = document.querySelector(".resCheck-input");
+
+// reservation check button
 let modal = document.querySelector(".resCheck-button");
 modal.addEventListener("click", checkingRes);
+
+// reservation check function
 
 function checkingRes(event) {
 	let localStore;
@@ -129,6 +144,7 @@ function checkingRes(event) {
 	completebtn.addEventListener("click", popUp);
 }
 
+// shows full details of reservation and make changes
 function popUp() {
 	let name = `${refValue.value}`;
 	let email = "test@test.com";
@@ -139,7 +155,7 @@ function popUp() {
 	let phoneNumber = "01733 3585417";
 	let textBox =
 		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, alias?";
-	let reservation = Math.floor(Math.random() * (1000 - 100) + 100);
+	let reservation = Math.floor(Math.random() * 1000000000);
 	Swal.fire({
 		icon: "success",
 		title: `Please see below reservation details
@@ -163,12 +179,14 @@ function popUp() {
 		>Make a Change</a
 	>`,
 		cancelButtonColor: "red",
-	}).then((result) => {
-		if (!result.isConfirmed) {
-			Swal.fire({
-				icon: "info",
-				title: "info!",
-				html: `<h1>Make a Reservation</h1>
+	})
+		// submitting new changes
+		.then((result) => {
+			if (!result.isConfirmed) {
+				Swal.fire({
+					icon: "info",
+					title: "info!",
+					html: `<h1>Make a Reservation</h1>
 										<label for="name">Name</label>
 										<input
 											type="text"
@@ -189,12 +207,18 @@ function popUp() {
 										/>
 
 										<label for="partySize">Party Size</label>
-										<select
+										<input
 											name=""
 											class="form-control"
 											id="partySizes"
-										></select>
+										></input>
 
+										<!-- <select
+										name=""
+										class="form-control"
+										id="partySizes"
+									></select> -->
+										
 										<label for="date">Date</label>
 										<input
 											type="date"
@@ -242,20 +266,20 @@ function popUp() {
 											rows="3"
 											class="form-control"
 										></textarea>`,
-			}).then((result) => {
-				let glasses = {
-					name: document.getElementById("names").value,
-					email: document.getElementById("emails").value,
-					party: document.getElementById("partySizes").value,
-					date: document.getElementById("dates").value,
-					time: document.getElementById("times").value,
-					location: document.getElementById("locations").value,
-					// let contactNumber = document.getElementById("contactNumber").value;
-					text: document.getElementById("my-textareas").value,
-					reservation: Math.floor(Math.random() * 1000000000),
-				};
-				localStorage.setItem("Newreservation", JSON.stringify(glasses));
-			});
-		}
-	});
+				}).then((result) => {
+					let glasses = {
+						name: document.getElementById("names").value,
+						email: document.getElementById("emails").value,
+						party: document.getElementById("partySizes").value,
+						date: document.getElementById("dates").value,
+						time: document.getElementById("times").value,
+						location: document.getElementById("locations").value,
+						// let contactNumber = document.getElementById("contactNumber").value;
+						text: document.getElementById("my-textareas").value,
+						reservation: Math.floor(Math.random() * 1000000000),
+					};
+					localStorage.setItem("Newreservation", JSON.stringify(glasses));
+				});
+			}
+		});
 }
