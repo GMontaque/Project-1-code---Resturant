@@ -92,14 +92,14 @@ $(function () {
 // save reservation to localstorage
 
 function saveLocalTodos(glass) {
-	localStorage.setItem("reservation", JSON.stringify(glass));
+	localStorage.setItem("a" + glass.reservation, JSON.stringify(glass));
 }
 
 // ******************************* checking reservation *******************************
 
 // html element which will comtain reservation on webpage
 
-const todoList = document.querySelector(".todo-list");
+const todoList = document.querySelector(".searchResults");
 
 // reservation check input
 let refValue = document.querySelector(".resCheck-input");
@@ -146,16 +146,17 @@ function checkingRes(event) {
 
 // shows full details of reservation and make changes
 function popUp() {
-	let name = `${refValue.value}`;
-	let email = "test@test.com";
-	let party = 5;
-	let date = "23/07/2021";
-	let time = "13:20";
-	let location = "london";
+	let stored = JSON.parse(localStorage.getItem("reservation"));
+	let name = stored.name;
+	let email = stored.email;
+	let party = stored.party;
+	let date = stored.date;
+	let time = stored.time;
+	let location = stored.location;
 	let phoneNumber = "01733 3585417";
 	let textBox =
 		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, alias?";
-	let reservation = Math.floor(Math.random() * 1000000000);
+	let reservation = stored.reservation;
 	Swal.fire({
 		icon: "success",
 		title: `Please see below reservation details
@@ -278,7 +279,7 @@ function popUp() {
 						text: document.getElementById("my-textareas").value,
 						reservation: Math.floor(Math.random() * 1000000000),
 					};
-					localStorage.setItem("Newreservation", JSON.stringify(glasses));
+					localStorage.setItem("reservation", JSON.stringify(glasses));
 				});
 			}
 		});
