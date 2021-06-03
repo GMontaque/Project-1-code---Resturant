@@ -1,3 +1,5 @@
+/* **************************************** basic website **************************************** */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -14,11 +16,11 @@ html {
 	font-size: 62.5%; /*1rem = 10px, 10px/16px = 62.5%*/
 }
 
-/* making a reservation */
+/* **************************************** making a reservation **************************************** */
 
 /* reservation abckground image */
 
-.background {
+.reservationBackground {
 	background-image: url(img/pastaMaking.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -48,10 +50,10 @@ html {
 	color: white;
 }
 
-h1,
-label {
+.mgLeft {
 	margin-left: 5%;
 }
+
 input,
 select {
 	margin-bottom: 1rem;
@@ -62,6 +64,24 @@ select {
 textarea {
 	width: 90% !important;
 	align-self: center;
+}
+
+@media (max-width: 1024px) {
+	.formStyle {
+		width: 60%;
+	}
+}
+
+@media (max-width: 768px) {
+	.formStyle {
+		width: 70%;
+	}
+}
+
+@media (max-width: 425px) {
+	.formStyle {
+		width: 90%;
+	}
 }
 
 /* form submit button */
@@ -75,7 +95,9 @@ textarea {
 	margin-top: 2rem;
 }
 
-.background2 {
+/* **************************************** checking a reservation **************************************** */
+
+.checkingBackground {
 	background-image: url(img/resturantBike.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -85,7 +107,18 @@ textarea {
 	opacity: 0.7;
 }
 
-/* checking a reservation */
+.resCheckInput {
+	display: flex;
+	justify-content: center;
+	width: 30rem;
+	margin: 0 auto;
+}
+
+@media (max-width: 475px) {
+	.resCheckInput {
+		width: 100%;
+	}
+}
 
 .resCheck-input,
 .resCheck-button {
@@ -93,10 +126,6 @@ textarea {
 	font-size: 2rem;
 	border: none;
 	background: white;
-}
-
-.resCheck-input {
-	width: 40% !important;
 }
 
 .resCheck-button {
@@ -111,7 +140,7 @@ textarea {
 	color: white;
 }
 
-.todo-container {
+.resultsContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;

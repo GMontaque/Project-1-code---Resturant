@@ -46,14 +46,14 @@
 							<!-- accordion resturant reservation body content-->
 							<div
 								id="collapseOne"
-								class="collapse"
+								class="collapse show"
 								aria-labelledby="headingOne"
 								data-parent="#accordionExample"
 							>
-								<div class="background">
-									<div class="form-group formStyle" id="form">
-										<h1>Make a Reservation</h1>
-										<label for="name">Name</label>
+								<div class="reservationBackground">
+									<form class="form-group formStyle" id="form">
+										<h1 class="mgLeft">Make a Reservation</h1>
+										<label class="mgLeft" for="name">Name</label>
 										<input
 											type="text"
 											name="name"
@@ -62,7 +62,7 @@
 											class="form-control"
 										/>
 
-										<label for="">Email Address</label>
+										<label class="mgLeft" for="">Email Address</label>
 										<input
 											type="email"
 											class="form-control"
@@ -72,14 +72,14 @@
 											placeholder="example@hotmail.co.uk"
 										/>
 
-										<label for="partySize">Party Size</label>
+										<label class="mgLeft" for="partySize">Party Size</label>
 										<select
 											name=""
 											class="form-control"
 											id="partySize"
 										></select>
 
-										<label for="date">Date</label>
+										<label class="mgLeft" for="date">Date</label>
 										<input
 											type="date"
 											name="date"
@@ -87,7 +87,7 @@
 											class="form-control"
 										/>
 
-										<label for="time">Time</label>
+										<label class="mgLeft" for="time">Time</label>
 										<input
 											type="time"
 											name="time"
@@ -95,7 +95,7 @@
 											class="form-control"
 										/>
 
-										<label for="location">location</label>
+										<label class="mgLeft" for="location">location</label>
 										<select
 											name="location"
 											class="location form-control"
@@ -109,7 +109,9 @@
 											<option value="oslo">Oslo</option>
 										</select>
 
-										<label for="contactNumber">Contact Number</label>
+										<label class="mgLeft" for="contactNumber"
+											>Contact Number</label
+										>
 										<input
 											type="tel"
 											name="contactNumber"
@@ -118,7 +120,7 @@
 											class="form-control"
 										/>
 
-										<label for="my-textarea">Text</label>
+										<label class="mgLeft" for="my-textarea">Text</label>
 										<textarea
 											id="my-textarea"
 											class="form-control"
@@ -135,7 +137,7 @@
 												Submit
 											</button>
 										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -157,30 +159,22 @@
 							<!-- accordion checking resturant reservation body content-->
 							<div
 								id="collapseTwo"
-								class="collapse show"
+								class="collapse"
 								aria-labelledby="headingTwo"
 								data-parent="#accordionExample"
 							>
-								<div class="background2" style="padding: 5rem">
-									<h2
-										style="
-											display: flex;
-											justify-content: center;
-											align-items: center;
-											margin: 3rem auto;
-											color: white;
-										"
-									>
+								<div class="checkingBackground" style="padding: 5rem">
+									<h2 style="text-align: center; margin: 3rem 0; color: white">
 										Check your Reservation and make changes
 									</h2>
 
-									<div style="display: flex; justify-content: center">
+									<div class="resCheckInput">
 										<input
 											type="text"
 											name=""
 											id=""
 											class="resCheck-input"
-											placeholder="Reference Number"
+											placeholder="Reference"
 										/>
 										<button
 											type="submit"
@@ -191,7 +185,7 @@
 										</button>
 									</div>
 
-									<div class="todo-container">
+									<div class="resultsContainer">
 										<ul class="searchResults">
 											<!-- <div class="todo">
 												<li>tree</li>

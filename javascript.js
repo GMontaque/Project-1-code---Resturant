@@ -1,6 +1,6 @@
 // ******************************* making a reservation *******************************
 
-// submit button
+// submit button reservation form
 
 let submitBtn = document.querySelector("#resSubmit");
 submitBtn.addEventListener("click", reservationResult);
@@ -17,7 +17,7 @@ function reservationResult() {
 		date: document.getElementById("date").value,
 		time: document.getElementById("time").value,
 		location: document.getElementById("location").value,
-		// let contactNumber = document.getElementById("contactNumber").value;
+		contactNumber: document.getElementById("contactNumber").value,
 		text: document.getElementById("my-textarea").value,
 		reservation: Math.floor(Math.random() * 1000000000),
 	};
@@ -65,20 +65,10 @@ function confirmRev(glass) {
 		}
 	});
 
-	setTimeout(reset, 10000);
-}
-
-// reset form after reservation completed
-
-function reset() {
-	names = document.getElementById("name").value = "";
-	email = document.getElementById("email").value = "";
-	party = document.getElementById("partySize").value = "";
-	date = document.getElementById("date").value = "";
-	time = document.getElementById("time").value = "";
-	location = document.getElementById("location").value = "";
-	// glass.contactNumber = document.getElementById("contactNumber").value= "";
-	text = document.getElementById("my-textarea").value = "";
+	if (true) {
+		let form = document.getElementById("form");
+		form.reset();
+	}
 }
 
 // party size feild
@@ -92,7 +82,7 @@ $(function () {
 // save reservation to localstorage
 
 function saveLocalTodos(glass) {
-	localStorage.setItem("a" + glass.reservation, JSON.stringify(glass));
+	localStorage.setItem(glass.reservation, JSON.stringify(glass));
 }
 
 // ******************************* checking reservation *******************************
@@ -119,8 +109,10 @@ function checkingRes(event) {
 	todoDiv.classList.add("todo");
 	// create Li
 	let newTodo = document.createElement("li");
-	localStore = JSON.parse(localStorage.getItem("reservation"));
-	newTodo.innerText = localStore;
+	newTodo.classList.add("makeChange");
+	let checking = refValue.value;
+	localStore = JSON.parse(localStorage.getItem(checking)); //have the value of getitem as the value from what is typed in the input
+	newTodo.innerText = localStore.reservation;
 	todoDiv.appendChild(newTodo);
 	console.log(localStore);
 	// check mark button
@@ -139,23 +131,30 @@ function checkingRes(event) {
 	refValue.value = "";
 	console.log(todoDiv);
 
-	// change pop up
 	let completebtn = document.querySelector(".complete-btn");
 	completebtn.addEventListener("click", popUp);
 }
 
+// function run(dataVal) {
+// 	// change pop up
+// 	let completebtn = document.querySelector(".complete-btn");
+// 	completebtn.addEventListener("click", popUp(dataVal));
+// }
+
 // shows full details of reservation and make changes
 function popUp() {
-	let stored = JSON.parse(localStorage.getItem("reservation"));
+	let checking = document.querySelector(".makeChange").innerText; // uses reservation number from input to return object from local storage
+	console.log(checking);
+	let stored = JSON.parse(localStorage.getItem(checking)); //have the value of getitem as the value from what is typed in the input
+	console.log(stored);
 	let name = stored.name;
 	let email = stored.email;
 	let party = stored.party;
 	let date = stored.date;
 	let time = stored.time;
 	let location = stored.location;
-	let phoneNumber = "01733 3585417";
-	let textBox =
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, alias?";
+	let phoneNumber = stored.contactNumber;
+	let textBox = stored.text;
 	let reservation = stored.reservation;
 	Swal.fire({
 		icon: "success",
@@ -193,6 +192,7 @@ function popUp() {
 											type="text"
 											name="name"
 											id="names"
+											value="${name}"
 											placeholder="Name"
 											class="form-control"
 										/>
@@ -202,6 +202,7 @@ function popUp() {
 											type="email"
 											class="form-control"
 											name="email"
+											value="${email}"
 											id="emails"
 											aria-describedby="emailHelpId"
 											placeholder="example@hotmail.co.uk"
@@ -210,6 +211,7 @@ function popUp() {
 										<label for="partySize">Party Size</label>
 										<input
 											name=""
+											value="${party}"
 											class="form-control"
 											id="partySizes"
 										></input>
@@ -224,6 +226,7 @@ function popUp() {
 										<input
 											type="date"
 											name="date"
+											value="${date}"
 											id="dates"
 											class="form-control"
 										/>
@@ -232,6 +235,7 @@ function popUp() {
 										<input
 											type="time"
 											name="time"
+											value="${time}"
 											id="times"
 											class="form-control"
 										/>
@@ -239,6 +243,7 @@ function popUp() {
 										<label for="location">location</label>
 										<select
 											name="location"
+											value="${location}"
 											class="location form-control"
 											id="locations"
 										>
@@ -255,6 +260,7 @@ function popUp() {
 											type="tel"
 											name="contactNumber"
 											id="contactNumbers"
+											value="${phoneNumber}"
 											placeholder="020 5701 7892"
 											class="form-control"
 										/>
@@ -263,7 +269,8 @@ function popUp() {
 										<textarea
 											id="my-textareas"
 											class="form-control"
-							alert("yes");				name="textarea"
+											value="${textBox}"
+											name="textarea"
 											rows="3"
 											class="form-control"
 										></textarea>`,
@@ -275,11 +282,11 @@ function popUp() {
 						date: document.getElementById("dates").value,
 						time: document.getElementById("times").value,
 						location: document.getElementById("locations").value,
-						// let contactNumber = document.getElementById("contactNumber").value;
+						contactNumber: document.getElementById("contactNumber").value,
 						text: document.getElementById("my-textareas").value,
 						reservation: Math.floor(Math.random() * 1000000000),
 					};
-					localStorage.setItem("reservation", JSON.stringify(glasses));
+					localStorage.setItem(checking, JSON.stringify(glasses));
 				});
 			}
 		});
