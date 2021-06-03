@@ -135,17 +135,11 @@ function checkingRes(event) {
 	completebtn.addEventListener("click", popUp);
 }
 
-// function run(dataVal) {
-// 	// change pop up
-// 	let completebtn = document.querySelector(".complete-btn");
-// 	completebtn.addEventListener("click", popUp(dataVal));
-// }
-
 // shows full details of reservation and make changes
 function popUp() {
-	let checking = document.querySelector(".makeChange").innerText; // uses reservation number from input to return object from local storage
+	let checking = document.querySelector(".makeChange").innerText;
 	console.log(checking);
-	let stored = JSON.parse(localStorage.getItem(checking)); //have the value of getitem as the value from what is typed in the input
+	let stored = JSON.parse(localStorage.getItem(checking));
 	console.log(stored);
 	let name = stored.name;
 	let email = stored.email;
