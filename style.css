@@ -183,3 +183,9 @@ textarea {
 .todo-item {
 	padding: 0rem 0.5rem;
 }
+
+.makeChange {
+	margin-left: 1rem;
+	/* text-decoration: solid; */
+	font-weight: 900;
+}

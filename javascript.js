@@ -79,6 +79,27 @@ $(function () {
 	}
 });
 
+// location field
+
+let resturantLocations = [
+	"See Below",
+	"london",
+	"stamford",
+	"glasgow",
+	"oslo, rome",
+];
+
+$(function () {
+	var $select = $("#location");
+	for (i = 0; i <= resturantLocations.length; i++) {
+		$select.append(
+			$("<option></option>")
+				.val(resturantLocations[i])
+				.html(resturantLocations[i])
+		);
+	}
+});
+
 // save reservation to localstorage
 
 function saveLocalTodos(glass) {
@@ -111,13 +132,22 @@ function checkingRes(event) {
 	let newTodo = document.createElement("li");
 	newTodo.classList.add("makeChange");
 	let checking = refValue.value;
-	localStore = JSON.parse(localStorage.getItem(checking)); //have the value of getitem as the value from what is typed in the input
+	localStore = JSON.parse(localStorage.getItem(checking));
 	newTodo.innerText = localStore.reservation;
 	todoDiv.appendChild(newTodo);
+
+	let testText = document.createElement("li");
+	testText.innerText = localStore.name;
+	todoDiv.appendChild(testText);
+
+	let testEmail = document.createElement("li");
+	testEmail.innerText = localStore.email;
+	todoDiv.appendChild(testEmail);
+
 	console.log(localStore);
 	// check mark button
 	let completedButton = document.createElement("button");
-	completedButton.innerHTML = '<i class="fas fa-check"></i>';
+	completedButton.innerHTML = '<i class="fas fa-redo-alt"></i>';
 	completedButton.classList.add("complete-btn");
 	todoDiv.appendChild(completedButton);
 	// check trash button
@@ -147,6 +177,7 @@ function popUp() {
 	let date = stored.date;
 	let time = stored.time;
 	let location = stored.location;
+	console.log(location);
 	let phoneNumber = stored.contactNumber;
 	let textBox = stored.text;
 	let reservation = stored.reservation;
@@ -235,19 +266,12 @@ function popUp() {
 										/>
 
 										<label for="location">location</label>
-										<select
+										<input
 											name="location"
-											value="${location}"
 											class="location form-control"
 											id="locations"
-										>
-											<option value="">See Below</option>
-											<option value="london">London</option>
-											<option value="stamford">Stamford</option>
-											<option value="glasgow">Glasgow</option>
-											<option value="rome">Rome</option>
-											<option value="oslo">Oslo</option>
-										</select>
+											value="${location}"
+										></input>
 
 										<label for="contactNumber">Contact Number</label>
 										<input
@@ -263,12 +287,11 @@ function popUp() {
 										<textarea
 											id="my-textareas"
 											class="form-control"
-											value="${textBox}"
 											name="textarea"
 											rows="3"
 											class="form-control"
-										></textarea>`,
-				}).then((result) => {
+										>${textBox}</textarea>`,
+				}).then(() => {
 					let glasses = {
 						name: document.getElementById("names").value,
 						email: document.getElementById("emails").value,
@@ -276,9 +299,9 @@ function popUp() {
 						date: document.getElementById("dates").value,
 						time: document.getElementById("times").value,
 						location: document.getElementById("locations").value,
-						contactNumber: document.getElementById("contactNumber").value,
+						contactNumber: document.getElementById("contactNumbers").value,
 						text: document.getElementById("my-textareas").value,
-						reservation: Math.floor(Math.random() * 1000000000),
+						reservation: reservation,
 					};
 					localStorage.setItem(checking, JSON.stringify(glasses));
 				});
