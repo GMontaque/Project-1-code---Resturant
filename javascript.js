@@ -109,7 +109,7 @@ function saveLocalTodos(glass) {
 
 // html element which will comtain reservation on webpage
 
-const searchResults = document.querySelector(".searchResults");
+const searchResults = document.querySelector(".resultsContainer");
 
 // reservation check input
 let refValue = document.querySelector(".resCheck-input");
@@ -145,10 +145,12 @@ function checkingRes(event) {
 	leftDiv.appendChild(newTodo);
 
 	let testText = document.createElement("li");
+	testText.classList.add("makeChange");
 	testText.innerText = localStore.name;
 	leftDiv.appendChild(testText);
 
 	let testEmail = document.createElement("li");
+	testEmail.classList.add("makeChange");
 	testEmail.innerText = localStore.email;
 	leftDiv.appendChild(testEmail);
 
