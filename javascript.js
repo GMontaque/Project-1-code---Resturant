@@ -124,9 +124,9 @@ function checkingRes(event) {
 	let localStore;
 	// prevent form from submitting
 	event.preventDefault();
-	// Todo Div
-	let todoDiv = document.createElement("div");
-	todoDiv.classList.add("todo");
+	// reservation Div
+	let reservationDiv = document.createElement("div");
+	reservationDiv.classList.add("todo");
 
 	// leftDiv
 	let leftDiv = document.createElement("div");
@@ -136,42 +136,40 @@ function checkingRes(event) {
 	let rightDiv = document.createElement("div");
 	rightDiv.classList.add("todoR");
 
-	// create Li
-	let newTodo = document.createElement("li");
-	newTodo.classList.add("makeChange");
+	// reservation inner text
+	let reservantionNumber = document.createElement("li");
 	let checking = refValue.value;
+	reservantionNumber.classList.add("resNumber");
 	localStore = JSON.parse(localStorage.getItem(checking));
-	newTodo.innerText = localStore.reservation;
-	leftDiv.appendChild(newTodo);
+	reservantionNumber.innerText = localStore.reservation;
+	leftDiv.appendChild(reservantionNumber);
 
-	let testText = document.createElement("li");
-	testText.classList.add("makeChange");
-	testText.innerText = localStore.name;
-	leftDiv.appendChild(testText);
+	let reservationName = document.createElement("li");
+	reservationName.innerText = localStore.name;
+	leftDiv.appendChild(reservationName);
 
-	let testEmail = document.createElement("li");
-	testEmail.classList.add("makeChange");
-	testEmail.innerText = localStore.email;
-	leftDiv.appendChild(testEmail);
+	let reservationEmail = document.createElement("li");
+	reservationEmail.innerText = localStore.email;
+	leftDiv.appendChild(reservationEmail);
 
-	console.log(localStore);
-	// check mark button
+	// make a change button
 	let completedButton = document.createElement("button");
 	completedButton.innerHTML = '<i class="fas fa-redo-alt"></i>';
 	completedButton.classList.add("complete-btn");
 	rightDiv.appendChild(completedButton);
-	// check trash button
+
+	// delete button
 	let trashButton = document.createElement("button");
 	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
 	trashButton.classList.add("trash-btn");
 	rightDiv.appendChild(trashButton);
 
 	// append to list
-	todoDiv.appendChild(leftDiv);
-	todoDiv.appendChild(rightDiv);
-	searchResults.appendChild(todoDiv);
+	reservationDiv.appendChild(leftDiv);
+	reservationDiv.appendChild(rightDiv);
+	searchResults.appendChild(reservationDiv);
 	refValue.value = "";
-	console.log(todoDiv);
+	console.log(reservationDiv);
 
 	let completebtn = document.querySelector(".complete-btn");
 	completebtn.addEventListener("click", popUp);
@@ -179,7 +177,7 @@ function checkingRes(event) {
 
 // shows full details of reservation and make changes
 function popUp() {
-	let checking = document.querySelector(".makeChange").innerText;
+	let checking = document.querySelector(".resNumber").innerText;
 	console.log(checking);
 	let stored = JSON.parse(localStorage.getItem(checking));
 	console.log(stored);
