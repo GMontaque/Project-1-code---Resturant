@@ -124,7 +124,7 @@
 											rows="3"
 											class="form-control"
 										></textarea>
-										<div style="display: flex; justify-content: space-evenly">
+										<div class="btnDiv">
 											<button
 												type="submit"
 												class="btn btn-primary"
@@ -160,11 +160,8 @@
 								aria-labelledby="headingTwo"
 								data-parent="#accordionExample"
 							>
-								<div
-									class="checkingBackground"
-									
-								>
-									<h2 style="text-align: center; margin: 3rem 0; color: white">
+								<div class="checkingBackground">
+									<h2 class="checkResTitle">
 										Check your Reservation and make changes
 									</h2>
 
@@ -175,12 +172,9 @@
 											id=""
 											class="resCheck-input"
 											placeholder="Reference"
+											onkeyup="manage(this)"
 										/>
-										<button
-											type="submit"
-											class="resCheck-button"
-											style="height: 40px"
-										>
+										<button type="submit" class="resCheck-button" disabled>
 											<i class="fa fa-plus-square" aria-hidden="true"></i>
 										</button>
 									</div>

@@ -10,7 +10,7 @@ submitBtn.addEventListener("click", reservationResult);
 // reservation fields
 
 function reservationResult() {
-	let glass = {
+	let reservationValues = {
 		name: document.getElementById("name").value,
 		email: document.getElementById("email").value,
 		party: document.getElementById("partySize").value,
@@ -22,30 +22,30 @@ function reservationResult() {
 		reservation: Math.floor(Math.random() * 1000000000),
 	};
 
-	confirmRev(glass);
-	saveLocalTodos(glass);
+	confirmRev(reservationValues);
+	saveRevLocal(reservationValues);
 }
 
 // confirmaiton reservation popup
 
-function confirmRev(glass) {
+function confirmRev(formValue) {
 	Swal.fire({
 		icon: "success",
 		title: `We are pleased to confim your reservation has been submitted.
-		<br/>Reservation Number: ${glass.reservation}`,
+		<br/>Reservation Number: ${formValue.reservation}`,
 		html: `Summary Reservation Information:
 		<br/>
-		Booking Name: ${glass.name} 
+		Booking Name: ${formValue.name} 
 		<br/>
-		Group Size: ${glass.party} 
+		Group Size: ${formValue.party} 
 		<br/>
-		Confirmation Email Address: ${glass.email}
+		Confirmation Email Address: ${formValue.email}
 		<br/>
-		Booking date and time: ${glass.time} on ${glass.date}
+		Booking date and time: ${formValue.time} on ${formValue.date}
 		<br/>
-		Location: ${glass.location}
+		Location: ${formValue.location}
 		<br/>
-		Notes: ${glass.text}`,
+		Notes: ${formValue.text}`,
 
 		showCancelButton: true,
 		confirmButtonText: "Close",
@@ -82,15 +82,16 @@ $(function () {
 
 let resturantLocations = [
 	"See Below",
-	"london",
-	"stamford",
-	"glasgow",
-	"oslo, rome",
+	"London",
+	"Stamford",
+	"Glasgow",
+	"Oslo",
+	"Rome",
 ];
 
 $(function () {
 	var $select = $("#location");
-	for (i = 0; i <= resturantLocations.length; i++) {
+	for (i = 0; i < resturantLocations.length; i++) {
 		$select.append(
 			$("<option></option>")
 				.val(resturantLocations[i])
@@ -101,11 +102,21 @@ $(function () {
 
 // save reservation to localstorage
 
-function saveLocalTodos(glass) {
-	localStorage.setItem(glass.reservation, JSON.stringify(glass));
+function saveRevLocal(resResult) {
+	localStorage.setItem(resResult.reservation, JSON.stringify(resResult));
 }
 
 // ******************************* checking reservation *******************************
+
+// input validation
+
+function manage() {
+	if (refValue.value != "") {
+		modal.disabled = false;
+	} else {
+		modal.disabled = true;
+	}
+}
 
 // html element which will comtain reservation on webpage
 
@@ -126,47 +137,47 @@ function checkingRes(event) {
 	event.preventDefault();
 	// reservation Div
 	let reservationDiv = document.createElement("div");
-	reservationDiv.classList.add("todo");
+	reservationDiv.classList.add("result");
 
 	// leftDiv
-	let leftDiv = document.createElement("div");
-	leftDiv.classList.add("todoL");
+	let leftInnerDiv = document.createElement("div");
+	leftInnerDiv.classList.add("resultL");
 
 	// rightDiv
-	let rightDiv = document.createElement("div");
-	rightDiv.classList.add("todoR");
+	let rightInnerDiv = document.createElement("div");
+	rightInnerDiv.classList.add("resultR");
 
 	// reservation inner text
 	let reservantionNumber = document.createElement("li");
-	let checking = refValue.value;
+	let checkingInputVal = refValue.value;
 	reservantionNumber.classList.add("resNumber");
-	localStore = JSON.parse(localStorage.getItem(checking));
+	localStore = JSON.parse(localStorage.getItem(checkingInputVal));
 	reservantionNumber.innerText = localStore.reservation;
-	leftDiv.appendChild(reservantionNumber);
+	leftInnerDiv.appendChild(reservantionNumber);
 
 	let reservationName = document.createElement("li");
 	reservationName.innerText = localStore.name;
-	leftDiv.appendChild(reservationName);
+	leftInnerDiv.appendChild(reservationName);
 
 	let reservationEmail = document.createElement("li");
 	reservationEmail.innerText = localStore.email;
-	leftDiv.appendChild(reservationEmail);
+	leftInnerDiv.appendChild(reservationEmail);
 
 	// make a change button
 	let completedButton = document.createElement("button");
 	completedButton.innerHTML = '<i class="fas fa-redo-alt"></i>';
 	completedButton.classList.add("complete-btn");
-	rightDiv.appendChild(completedButton);
+	rightInnerDiv.appendChild(completedButton);
 
 	// delete button
 	let trashButton = document.createElement("button");
 	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
 	trashButton.classList.add("trash-btn");
-	rightDiv.appendChild(trashButton);
+	rightInnerDiv.appendChild(trashButton);
 
 	// append to list
-	reservationDiv.appendChild(leftDiv);
-	reservationDiv.appendChild(rightDiv);
+	reservationDiv.appendChild(leftInnerDiv);
+	reservationDiv.appendChild(rightInnerDiv);
 	searchResults.appendChild(reservationDiv);
 	refValue.value = "";
 	console.log(reservationDiv);
@@ -177,20 +188,19 @@ function checkingRes(event) {
 
 // shows full details of reservation and make changes
 function popUp() {
-	let checking = document.querySelector(".resNumber").innerText;
-	console.log(checking);
-	let stored = JSON.parse(localStorage.getItem(checking));
-	console.log(stored);
-	let name = stored.name;
-	let email = stored.email;
-	let party = stored.party;
-	let date = stored.date;
-	let time = stored.time;
-	let location = stored.location;
-	console.log(location);
-	let phoneNumber = stored.contactNumber;
-	let textBox = stored.text;
-	let reservation = stored.reservation;
+	let reservationNum = document.querySelector(".resNumber").innerText;
+	console.log(reservationNum);
+	let storedVal = JSON.parse(localStorage.getItem(reservationNum));
+	console.log(storedVal);
+	let name = storedVal.name;
+	let email = storedVal.email;
+	let party = storedVal.party;
+	let date = storedVal.date;
+	let time = storedVal.time;
+	let location = storedVal.location;
+	let phoneNumber = storedVal.contactNumber;
+	let textBox = storedVal.text;
+	let reservation = storedVal.reservation;
 	Swal.fire({
 		icon: "success",
 		title: `Please see below reservation details
@@ -302,7 +312,7 @@ function popUp() {
 											class="form-control"
 										>${textBox}</textarea>`,
 				}).then(() => {
-					let glasses = {
+					let reservationValuesNew = {
 						name: document.getElementById("names").value,
 						email: document.getElementById("emails").value,
 						party: document.getElementById("partySizes").value,
@@ -313,7 +323,10 @@ function popUp() {
 						text: document.getElementById("my-textareas").value,
 						reservation: reservation,
 					};
-					localStorage.setItem(checking, JSON.stringify(glasses));
+					localStorage.setItem(
+						reservationNum,
+						JSON.stringify(reservationValuesNew)
+					);
 				});
 			}
 		});
