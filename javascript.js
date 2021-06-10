@@ -66,8 +66,7 @@ function confirmRev(glass) {
 	});
 
 	if (true) {
-		let form = document.getElementById("form");
-		form.reset();
+		$("#form").children("input").val("");
 	}
 }
 
@@ -110,7 +109,7 @@ function saveLocalTodos(glass) {
 
 // html element which will comtain reservation on webpage
 
-const todoList = document.querySelector(".searchResults");
+const searchResults = document.querySelector(".searchResults");
 
 // reservation check input
 let refValue = document.querySelector(".resCheck-input");
@@ -128,36 +127,47 @@ function checkingRes(event) {
 	// Todo Div
 	let todoDiv = document.createElement("div");
 	todoDiv.classList.add("todo");
+
+	// leftDiv
+	let leftDiv = document.createElement("div");
+	leftDiv.classList.add("todoL");
+
+	// rightDiv
+	let rightDiv = document.createElement("div");
+	rightDiv.classList.add("todoR");
+
 	// create Li
 	let newTodo = document.createElement("li");
 	newTodo.classList.add("makeChange");
 	let checking = refValue.value;
 	localStore = JSON.parse(localStorage.getItem(checking));
 	newTodo.innerText = localStore.reservation;
-	todoDiv.appendChild(newTodo);
+	leftDiv.appendChild(newTodo);
 
 	let testText = document.createElement("li");
 	testText.innerText = localStore.name;
-	todoDiv.appendChild(testText);
+	leftDiv.appendChild(testText);
 
 	let testEmail = document.createElement("li");
 	testEmail.innerText = localStore.email;
-	todoDiv.appendChild(testEmail);
+	leftDiv.appendChild(testEmail);
 
 	console.log(localStore);
 	// check mark button
 	let completedButton = document.createElement("button");
 	completedButton.innerHTML = '<i class="fas fa-redo-alt"></i>';
 	completedButton.classList.add("complete-btn");
-	todoDiv.appendChild(completedButton);
+	rightDiv.appendChild(completedButton);
 	// check trash button
 	let trashButton = document.createElement("button");
 	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
 	trashButton.classList.add("trash-btn");
-	todoDiv.appendChild(trashButton);
+	rightDiv.appendChild(trashButton);
 
 	// append to list
-	todoList.appendChild(todoDiv);
+	todoDiv.appendChild(leftDiv);
+	todoDiv.appendChild(rightDiv);
+	searchResults.appendChild(todoDiv);
 	refValue.value = "";
 	console.log(todoDiv);
 
