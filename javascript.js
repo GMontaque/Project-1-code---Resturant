@@ -1,5 +1,30 @@
 // ******************************* making a reservation *******************************
 
+// input validation
+
+function reservationSubmit() {
+	let name = document.getElementById("name").value;
+	let email = document.getElementById("email").value;
+	let party = document.getElementById("partySize").value;
+	let date = document.getElementById("date").value;
+	let time = document.getElementById("time").value;
+	let location = document.getElementById("location").value;
+	let contactNumber = document.getElementById("contactNumber").value;
+	if (
+		name &&
+		email &&
+		party &&
+		date &&
+		time &&
+		location &&
+		contactNumber != ""
+	) {
+		submitBtn.disabled = false;
+	} else {
+		submitBtn.disabled = true;
+	}
+}
+
 // submit button reservation form
 
 let submitBtn = document.querySelector("#resSubmit");
@@ -67,6 +92,8 @@ function confirmRev(formValue) {
 
 	if (true) {
 		$("#form").children("input").val("");
+		$("#form").children("textarea").val("");
+		$("#form").children("select").val("");
 	}
 }
 
@@ -174,6 +201,13 @@ function checkingRes(event) {
 	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
 	trashButton.classList.add("trash-btn");
 	rightInnerDiv.appendChild(trashButton);
+
+	// remove reservation result
+
+	trashButton.addEventListener("click", removeItem);
+	function removeItem() {
+		searchResults.remove();
+	}
 
 	// append to list
 	reservationDiv.appendChild(leftInnerDiv);
@@ -323,6 +357,7 @@ function popUp() {
 						text: document.getElementById("my-textareas").value,
 						reservation: reservation,
 					};
+					searchResults.remove();
 					localStorage.setItem(
 						reservationNum,
 						JSON.stringify(reservationValuesNew)

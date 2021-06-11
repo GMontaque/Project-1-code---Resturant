@@ -52,7 +52,11 @@
 								data-parent="#accordionExample"
 							>
 								<div class="reservationBackground">
-									<div class="form-group formStyle" id="form">
+									<div
+										class="form-group formStyle"
+										id="form"
+										onkeyup="reservationSubmit(this)"
+									>
 										<h1 class="mgLeft" style="text-align: center">
 											Make a Reservation
 										</h1>
@@ -129,6 +133,7 @@
 												type="submit"
 												class="btn btn-primary"
 												id="resSubmit"
+												disabled
 											>
 												Submit
 											</button>
