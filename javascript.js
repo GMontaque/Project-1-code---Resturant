@@ -179,15 +179,18 @@ function checkingRes(event) {
 	let checkingInputVal = refValue.value;
 	reservantionNumber.classList.add("resNumber");
 	localStore = JSON.parse(localStorage.getItem(checkingInputVal));
-	reservantionNumber.innerText = localStore.reservation;
+	reservantionNumber.innerHTML =
+		'<i class="fas fa-wine-bottle iconStyle"></i>' + localStore.reservation;
 	leftInnerDiv.appendChild(reservantionNumber);
 
 	let reservationName = document.createElement("li");
-	reservationName.innerText = localStore.name;
+	reservationName.innerHTML =
+		'<i class="far fa-user iconStyle"></i>' + localStore.name;
 	leftInnerDiv.appendChild(reservationName);
 
 	let reservationEmail = document.createElement("li");
-	reservationEmail.innerText = localStore.email;
+	reservationEmail.innerHTML =
+		'<i class="far fa-envelope iconStyle"></i>' + localStore.email;
 	leftInnerDiv.appendChild(reservationEmail);
 
 	// make a change button

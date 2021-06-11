@@ -164,6 +164,7 @@ textarea {
 .result {
 	margin: 0.5rem;
 	background: white;
+	width: 40rem;
 	/*color: black;
 	 font-size: 1.5rem;
 	display: flex;
@@ -174,22 +175,31 @@ textarea {
 
 .resultL {
 	margin: 0.5rem;
-	background: white;
+	/* background: white; */
 	color: black;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	display: flex;
 	flex-direction: column;
 	/* align-items: center; */
 }
+@media (max-width: 379px) {
+	.resultL {
+		font-size: 1.5rem;
+	}
+}
 
 .resultR {
 	margin: 0.5rem;
-	background: white;
+	/* background: white; */
 	color: black;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	/* font-size: 1.5rem; */
+}
+
+.iconStyle {
+	margin-right: 1rem;
 }
 
 .trash-btn,
