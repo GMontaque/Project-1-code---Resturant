@@ -1,3 +1,36 @@
+// @media (max-width: 768px) {
+// 	.formStyle {
+// 		width: 80%;
+// 		height: 84vh;
+// 	}
+// }
+
+// @media (max-width: 426px) {
+// 	.formStyle {
+// 		width: 100%;
+// 	}
+// }
+
+// @media (max-width: 768px) {
+// 	.reservationTitle {
+// 		margin-top: -1rem;
+// 	}
+
+// 	.reservationBackground {
+// 		margin: 0rem;
+// 	}
+
+// 	.reservationTitle {
+// 		font-size: 1.5rem;
+// 	}
+
+// 	#resSubmit {
+// 		margin-top: 1.5rem !important;
+// 		margin-bottom: 1rem;
+// 		font-size: 1rem !important;
+// 	}
+// }
+
 // ******************************* making reservation *******************************
 
 let submitBtn = document.querySelector("#resSubmit");

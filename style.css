@@ -45,9 +45,6 @@ html {
 	right: 0;
 	padding: 3rem;
 	color: white;
-	/* box-shadow: 10px 10px 10px lightblue; */
-	/* margin-top: -4rem; */
-	/* font-weight: 300; */
 }
 
 .mgLeft {
@@ -66,21 +63,44 @@ textarea {
 	align-self: center;
 }
 
-@media (max-width: 1024px) {
-	.formStyle {
-		width: 60%;
-	}
-}
+/* media query smaller screen */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 	.formStyle {
 		width: 70%;
 	}
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
 	.formStyle {
-		width: 90%;
+		width: 80%;
+		height: 84vh;
+	}
+}
+
+@media (max-width: 768px) {
+	.reservationTitle {
+		margin-top: -1rem;
+	}
+
+	.reservationBackground {
+		margin: 0rem;
+	}
+
+	#resSubmit {
+		margin-top: 1.5rem !important;
+		margin-bottom: 1rem;
+		font-size: 1rem !important;
+	}
+}
+
+@media (max-width: 426px) {
+	.formStyle {
+		width: 100%;
+	}
+
+	.reservationTitle {
+		font-size: 1.5rem;
 	}
 }
 
@@ -165,23 +185,16 @@ textarea {
 	margin: 0.5rem;
 	background: white;
 	width: 40rem;
-	/*color: black;
-	 font-size: 1.5rem;
-	display: flex;
-	 justify-content: space-between;
-	align-items: center;
-	transition: all 1s ease; */
 }
 
 .resultL {
 	margin: 0.5rem;
-	/* background: white; */
 	color: black;
 	font-size: 2rem;
 	display: flex;
 	flex-direction: column;
-	/* align-items: center; */
 }
+
 @media (max-width: 379px) {
 	.resultL {
 		font-size: 1.5rem;
@@ -190,12 +203,10 @@ textarea {
 
 .resultR {
 	margin: 0.5rem;
-	/* background: white; */
 	color: black;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	/* font-size: 1.5rem; */
 }
 
 .iconStyle {
@@ -222,21 +233,3 @@ li {
 	width: 100%;
 	padding: 0rem 1rem;
 }
-
-/* .searchResults {
-	min-width: 30%; 
-	 list-style: none; 
-} */
-
-/* .makeChange {
-	margin: 0rem 1rem;
-	text-decoration: solid;
-} */
-
-/* .todo li {
-	flex: 1;
-} */
-
-/* .todo-item {
-	padding: 0rem 0.5rem;
-} */

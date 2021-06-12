@@ -30,8 +30,6 @@ function reservationSubmit() {
 let submitBtn = document.querySelector("#resSubmit");
 submitBtn.addEventListener("click", reservationResult);
 
-// look to have all inputs in one function and have them passed to the modal popup
-
 // reservation fields
 
 function reservationResult() {
