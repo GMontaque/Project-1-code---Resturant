@@ -218,7 +218,9 @@ function checkingRes(event) {
 	console.log(reservationDiv);
 
 	let completebtn = document.querySelector(".complete-btn");
-	completebtn.addEventListener("click", popUp);
+	if (completebtn) {
+		completebtn.addEventListener("click", popUp);
+	}
 }
 
 // shows full details of reservation and make changes
