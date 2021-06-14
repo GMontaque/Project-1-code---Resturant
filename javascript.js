@@ -145,7 +145,7 @@ function manage() {
 
 // html element which will comtain reservation on webpage
 
-const searchResults = document.querySelector(".resultsContainer");
+let searchResults = document.querySelector(".resultsContainer");
 
 // reservation check input
 let refValue = document.querySelector(".resCheck-input");
@@ -204,10 +204,10 @@ function checkingRes(event) {
 	rightInnerDiv.appendChild(trashButton);
 
 	// remove reservation result
-
+	let reservationResultsDiv = searchResults.getElementsByTagName("div");
 	trashButton.addEventListener("click", removeItem);
 	function removeItem() {
-		searchResults.remove();
+		reservationResultsDiv[0].remove();
 	}
 
 	// append to list
