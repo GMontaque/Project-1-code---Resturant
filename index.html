@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Title</title>
+		<!-- website Logo image and Name in Broswer Tab -->
+		<title>Giulio Montaque</title>
+		<link rel="icon" href="img\logoTree.png" />
+
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<!-- google font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+			rel="stylesheet"
 		/>
 
 		<!-- Bootstrap CSS -->
@@ -17,190 +27,791 @@
 			crossorigin="anonymous"
 		/>
 
+		<!-- website CSS -->
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".navbar">
 		<div class="container-fluid">
-			<div class="row">
-				<!-- left column  -->
-				<div class="col-md-2"></div>
+			<!--****************************** navbar****************************** -->
+			<nav class="navbar navbar-dark navbarStyle">
+				<!-- logo -->
+				<a class="navbar-brand" href="#"
+					><img
+						class="img-fluid"
+						style="width: 100%"
+						src="img\logoTree.png"
+						alt=""
+				/></a>
 
-				<!-- middle column  -->
-				<div class="col-md-8">
-					<!-- accordion  -->
-					<div class="accordion" id="accordionExample">
-						<!-- accordion resturant reservation -->
-						<div class="card">
-							<div class="card-header" id="headingOne">
-								<h2 class="mb-0">
-									<button
-										type="button"
-										class="btn btn-link"
-										data-toggle="collapse"
-										data-target="#collapseOne"
-										style="font-size: 1.5rem"
+				<!-- Toggler/collapsibe Button -->
+				<div class="navButton">
+					<div class="leftNav">
+						<!-- Navbar links -->
+						<div class="collapse navbar-collapse" id="collapsibleNavbar">
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<a
+										class="nav-link active"
+										href="#home"
+										style="margin-left: 2rem"
+										>Home</a
 									>
-										<i class="fa fa-plus"></i> Making a Reservation
-									</button>
-								</h2>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#about">About Me</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#skills">Skills</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#education">Education</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#projects">Portfolio</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#footer">Contact Me</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- navbar button -->
+					<div class="rightNavButton">
+						<button
+							class="navbar-toggler buttonStyle"
+							type="button"
+							data-toggle="collapse"
+							data-target="#collapsibleNavbar"
+						>
+							<span
+								class="navbar-toggler-icon"
+								style="font-size: 2.5rem"
+							></span>
+						</button>
+					</div>
+				</div>
+			</nav>
+
+			<!--****************************** HomePage****************************** -->
+			<div class="row" id="home">
+				<h1 class="centered titleSize">&lt;Giulio Montaque/&gt;</h1>
+				<!-- typewriter text -->
+				<h1 class="typewriterStyle">
+					<a
+						class="typewrite typewriter"
+						data-period="2000"
+						data-type='[ "I am a Developer.", "I am a Problem Solver.","I am Dependable.", "I am Creative.",
+						 "I am a Designer."]'
+					>
+						<span class="wrap"></span>
+					</a>
+				</h1>
+				<!-- down arrow -->
+				<a href="#about">
+					<i
+						class="fa fa-angle-double-down fa-4x downArrowCentered"
+						aria-hidden="true"
+					></i>
+				</a>
+				<!-- background image -->
+				<div class="homepageImage"></div>
+			</div>
+
+			<!--******************************  Up Arrow ******************************  -->
+			<a href="#">
+				<i class="fas fa-angle-double-up fa-6x upArrowStlye"></i>
+			</a>
+
+			<!-- ****************************** About section ****************************** -->
+			<div class="row aboutBackground" id="about">
+				<h2 class="col-md-12 text-center subTitle">&lt;About/&gt;</h2>
+
+				<div class="col-md-6 text-center">
+					<img class="img-fluid aboutImg" src="img/profileIMG.jpeg" alt="" />
+				</div>
+
+				<div class="col-md-6">
+					<p class="aboutText">
+						I take pride in being good at thinking on my feet. I like problem
+						solving and have always been good in a crisis where cool heads are
+						needed. Both in my work and in my interests, I often find myself in
+						leading roles which require focus, strong time management and the
+						ability to multi-task whilst taking the team with you.
+						<br />
+						<br />
+						My passion for IT and computers started at an early age, as a number
+						of family members were involved in IT. At school, I found that IT
+						was a subject I not only enjoyed but excelled at, and it was always
+						a topic discussed at home. Though I continued with IT as a hobby, I
+						pursued a career in the military which I had to abandon due to a
+						rare allergy which prevented me from joining. At this point I
+						initiated online courses in web development whilst holding down a
+						full time job and front end web development was a natural
+						progression from that.
+					</p>
+				</div>
+			</div>
+
+			<!-- ******************************skills section ******************************-->
+			<div class="row skillBackground" id="skills">
+				<h2 class="col-md-12 text-center subTitle">&lt;Skills/&gt;</h2>
+
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fa fa-github-square fa-10x" aria-hidden="true"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">Github</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 90%"
+									aria-valuenow="90"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									90%
+								</div>
 							</div>
-							<!-- accordion resturant reservation body content-->
-							<div
-								id="collapseOne"
-								class="collapse show"
-								aria-labelledby="headingOne"
-								data-parent="#accordionExample"
-							>
-								<div class="reservationBackground">
-									<div
-										class="form-group formStyle"
-										id="form"
-										onkeyup="reservationSubmit(this)"
-									>
-										<h1
-											class="mgLeft reservationTitle"
-											style="text-align: center"
-										>
-											Make a Reservation
-										</h1>
-										<label class="mgLeft" for="name">Name</label>
-										<input
-											type="text"
-											name="name"
-											id="name"
-											placeholder="Name"
-											class="form-control"
-										/>
+							<p class="skillText">
+								GitHub is a provider of Internet hosting for software
+								development and version control using Git. It offers the
+								distributed version control and source code management
+								functionality of Git, plus its own features.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="">Email Address</label>
-										<input
-											type="email"
-											class="form-control"
-											name="email"
-											id="email"
-											aria-describedby="emailHelpId"
-											placeholder="example@hotmail.co.uk"
-										/>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fa fa-html5 fa-10x" aria-hidden="true"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">HTML</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 90%"
+									aria-valuenow="90"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									90%
+								</div>
+							</div>
+							<p class="skillText">
+								HTML stands for Hyper Text Markup Language, which is a set of
+								rules that tell computers how to interpret code to display
+								websites. HTML5 is the 5th version of these rules, and brings
+								major upgrades to the capabilities of websites.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="partySize">Party Size</label>
-										<select
-											name=""
-											class="form-control"
-											id="partySize"
-										></select>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fab fa-bootstrap fa-10x"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">Bootstrap</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 80%"
+									aria-valuenow="80"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									80%
+								</div>
+							</div>
+							<p class="skillText">
+								Bootstrap is one of the most popular HTML, CSS, and JavaScript
+								frameworks for developing responsive, mobile-first websites.
+								Bootstrap does this by using a responsive grid system where
+								columns re-arrange automatically depending on the screen size.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="date">Date</label>
-										<input
-											type="date"
-											name="date"
-											id="date"
-											class="form-control"
-										/>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fab fa-sass fa-10x"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">SASS</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 60%"
+									aria-valuenow="60"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									60%
+								</div>
+							</div>
+							<p class="skillText">
+								Sass (Syntactically Awesome Style Sheets) is a pre-processor
+								scripting language that is interpreted or compiled into
+								Cascading Style Sheets (CSS) and run on the client side or
+								server side.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="time">Time</label>
-										<input
-											type="time"
-											name="time"
-											id="time"
-											class="form-control"
-										/>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fab fa-js-square fa-10x"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">Javascript</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 60%"
+									aria-valuenow="60"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									60%
+								</div>
+							</div>
+							<p class="skillText">
+								JavaScript is most commonly used as a client side scripting
+								language. This means that JavaScript code is written into an
+								HTML page. When a user requests an HTML page with JavaScript in
+								it, the script is interpreted by the browser and then executed.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="location">Location</label>
-										<select
-											name="location"
-											class="location form-control"
-											id="location"
-										></select>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fab fa-css3-alt fa-10x" aria-hidden="true"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">CSS</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 90%"
+									aria-valuenow="90"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									90%
+								</div>
+							</div>
+							<p class="skillText">
+								CSS stands for Cascading Style Sheets. CSS describes how HTML
+								elements are to be displayed on screen, paper, or in other
+								media. CSS saves a lot of work by controlling the layout of
+								multiple web pages at once. External stylesheets are stored in
+								CSS files.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="contactNumber"
-											>Contact Number</label
-										>
-										<input
-											type="tel"
-											name="contactNumber"
-											id="contactNumber"
-											placeholder="020 5701 7892"
-											class="form-control"
-										/>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fab fa-react fa-10x"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">React</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 50%"
+									aria-valuenow="50"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									50%
+								</div>
+							</div>
+							<p class="skillText">
+								React is an open-source, front end JavaScript library for
+								building user interfaces or UI components. The library is
+								maintained by Facebook and a community of individual developers
+								and companies. React can be used as a codebase in the
+								development of single-page or mobile applications.
+							</p>
+						</div>
+					</div>
+				</div>
 
-										<label class="mgLeft" for="my-textarea">Text</label>
-										<textarea
-											id="my-textarea"
-											class="form-control"
-											name="textarea"
-											rows="3"
-											class="form-control"
-										></textarea>
-										<div class="btnDiv">
-											<button
-												type="submit"
-												class="btn btn-primary"
-												id="resSubmit"
-												disabled
-											>
-												Submit
-											</button>
+				<div class="col-md-4 col-sm-6 marginTB">
+					<div class="skill">
+						<i class="fab fa-angular fa-10x" aria-hidden="true"></i>
+						<!-- skillTitle -->
+						<h4 class="skillSubHead">Angular</h4>
+						<div class="skillDescription">
+							<div class="progress">
+								<div
+									class="progress-bar"
+									role="progressbar"
+									style="width: 70%"
+									aria-valuenow="70"
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									70%
+								</div>
+							</div>
+							<p class="skillText">
+								Angular is a TypeScript-based open-source web application
+								framework led by the Angular Team at Google and by a community
+								of individuals and corporations.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--*********************** Education****************************** -->
+			<div class="row" id="education">
+				<div class="educationBackgroundImage">
+					<h1 class="col-md-12 text-center subTitle educationTitle">
+						&lt;Education/&gt;
+					</h1>
+
+					<!-- education timeline -->
+					<div id="timeline">
+						<div class="row timeline-movement timeline-movement-top">
+							<div class="timeline-badge timeline-future-movement">
+								<i
+									class="fa fa-angle-double-down fa-3x educationArrow"
+									aria-hidden="true"
+								></i>
+							</div>
+						</div>
+
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="col-sm-6 timeline-item">
+								<div class="row">
+									<div class="col-sm-11">
+										<div class="timeline-panel credits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>JustIt Web Developer Course</h3>
+												<p>2020 - Current</p>
+											</div>
+											<p>
+												To give myself the best chance of securing a role and
+												stand out from the crowd, I felt I needed to increase my
+												breadth of skills. JustIt offered the quality of course
+												I was searching for that would ensure I could go further
+												in the industry and build my career.
+											</p>
+											<div class="clear"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<!-- accordion checking resturant reservation -->
-						<div class="card">
-							<div class="card-header" id="headingTwo">
-								<h2 class="mb-0">
-									<button
-										type="button"
-										class="btn btn-link"
-										data-toggle="collapse"
-										data-target="#collapseTwo"
-										style="font-size: 1.5rem"
-									>
-										<i class="fa fa-plus"></i> Checking a Reservation
-									</button>
-								</h2>
-							</div>
-							<!-- accordion checking resturant reservation body content-->
-							<div
-								id="collapseTwo"
-								class="collapse"
-								aria-labelledby="headingTwo"
-								data-parent="#accordionExample"
-							>
-								<div class="checkingBackground">
-									<h2 class="checkResTitle">
-										Check your Reservation and make changes
-									</h2>
-
-									<div class="resCheckInput">
-										<input
-											type="text"
-											name=""
-											id=""
-											class="resCheck-input"
-											placeholder="Reference"
-											onkeyup="manage(this)"
-										/>
-										<button type="submit" class="resCheck-button" disabled>
-											<i class="fa fa-plus-square" aria-hidden="true"></i>
-										</button>
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="offset-sm-6 col-sm-6 timeline-item">
+								<div class="row">
+									<div class="offset-sm-1 col-sm-11">
+										<div class="timeline-panel debits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>Private IT Tutor</h3>
+												<p>2019 - 2020</p>
+											</div>
+											<p>
+												In order to cement areas of knowledge where the course
+												was weak, I engaged a private tutor for one on one
+												lessons. A well as plugging some gaps in my knowledge,
+												they introduced me to sites such as Udemy where I
+												completed a number of different courses on programming
+												languages.
+											</p>
+											<div class="clear"></div>
+										</div>
 									</div>
-
-									<div class="resultsContainer"></div>
 								</div>
+							</div>
+						</div>
+
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="col-sm-6 timeline-item">
+								<div class="row">
+									<div class="col-sm-11">
+										<div class="timeline-panel credits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>Stonebridge Careers Training</h3>
+												<p>2017 - 2019</p>
+											</div>
+											<p>
+												After discovering that I was unable to join the military
+												due to a rare allergy, I regrouped and turned to another
+												passion of mine which was IT. On investigation it became
+												clear that I could gain the training online, without
+												having to go to university so I selected Stonebridge and
+												signed myself up to their online web developer course.
+											</p>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row timeline-movement timeline-movement-top">
+							<div class="timeline-badge timeline-future-movement">
+								<i
+									class="fa fa-angle-double-down fa-3x educationArrow"
+									aria-hidden="true"
+								></i>
+							</div>
+						</div>
+
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="offset-sm-6 col-sm-6 timeline-item">
+								<div class="row">
+									<div class="offset-sm-1 col-sm-11">
+										<div class="timeline-panel debits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>Peterborough Regional College</h3>
+												<p>2011 - 2013</p>
+											</div>
+											<p>
+												In order to enter the army as an officer, I required
+												extra points so I decided to do a course which would
+												complement my choice of career in the military. The
+												public services course suited this aim giving experience
+												in relevant skills such as orienteering, organisation
+												skills and leadership.
+												<br />
+												<br />
+												BTEC - Level 3 Diploma in Public Services: Public
+												Services Peterborough Peterborough Regional College
+												Grade - Distinction*, Distinction*, Distinction
+											</p>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="col-sm-6 timeline-item">
+								<div class="row">
+									<div class="col-sm-11">
+										<div class="timeline-panel credits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>Thomas Deacon Academy</h3>
+												<p>2009 - 2011</p>
+											</div>
+											<p>
+												I completed my A Levels at Thomas Deacon Academy where I
+												did Design & Technology, ICT and an Extended Project.
+												There was also the opportunity to do extra classes and I
+												completed a GCSE in Italian alongside my A-Levels as
+												well as joining the Combined Cadet Force.
+											</p>
+											<div class="clear"></div>
+										</div>
+										<br /><br /><br />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="offset-sm-6 col-sm-6 timeline-item">
+								<div class="row">
+									<div class="offset-sm-1 col-sm-11">
+										<div class="timeline-panel debits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>CCF - Combined Cadet Force</h3>
+												<p>2009 - 2013</p>
+											</div>
+											<p>
+												After completing 2 years as a cadet, I was offered the
+												opportunity to volunteer as an adult instructor/senior,
+												reaching the rank of Sergeant. Primary responsibilities
+												included preparing lesson plans, teaching, monitoring
+												the wellbeing of the cadets and leading them in a
+												variety of activities from military exercises to weekend
+												residentials. This was a steep learning experience which
+												developed my team management, conflict resolution and
+												leadership skills, alongside refining my ability to stay
+												calm under pressure.
+											</p>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row timeline-movement timeline-movement-top">
+							<div class="timeline-badge timeline-future-movement">
+								<i
+									class="fa fa-angle-double-down fa-3x educationArrow"
+									aria-hidden="true"
+								></i>
+							</div>
+						</div>
+
+						<div class="row timeline-movement">
+							<div class="timeline-badge center-left"></div>
+							<div class="col-sm-6 timeline-item">
+								<div class="row">
+									<div class="col-sm-11">
+										<div class="timeline-panel credits anim animate fadeInLeft">
+											<div class="timelineTitle">
+												<h3>St John Fisher</h3>
+												<p>2007 - 2009</p>
+											</div>
+											<p>
+												On completing my GCSEs at St John Fisher, I achieved 10
+												A to C grades which included English and Maths.
+											</p>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row timeline-movement timeline-movement-top">
+							<div class="timeline-badge timeline-future-movement">
+								<i
+									class="fa fa-angle-double-up fa-3x educationArrow"
+									aria-hidden="true"
+								></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--****************************** Projects****************************** -->
+			<div class="row" id="projects">
+				<h1 class="projectTitle col-md-12 text-center subTitle">
+					&lt;Portfolio/&gt;
+				</h1>
+				<!-- project 1 -->
+				<div class="project col-lg-4 col-md-6">
+					<div
+						class="flip-container"
+						ontouchstart="this.classList.toggle('hover');"
+					>
+						<div class="flipper">
+							<div class="cardFront">
+								<div class="imageFront"></div>
+								<h4 class="frontText">
+									<span class="textBackgroundPadding">The Forest Hiker</span>
+								</h4>
+							</div>
+							<div class="cardBack">
+								<h1 class="projectBack-h1">Project 1 Title</h1>
+								<div class="imageBack"></div>
+								<p class="projectBack-p">Short Description</p>
+								<a href="http://">Link to project</a>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- right column  -->
-				<div class="col-md-2"></div>
+				<!-- project 2 -->
+				<div class="project col-lg-4 col-md-6">
+					<div
+						class="flip-container"
+						ontouchstart="this.classList.toggle('hover');"
+					>
+						<div class="flipper">
+							<div class="cardFront">
+								<div class="imageFront"></div>
+								<h4 class="frontText">
+									<span class="textBackgroundPadding">The Forest Hiker</span>
+								</h4>
+							</div>
+							<div class="cardBack">
+								<h1 class="projectBack-h1">Project 2 Title</h1>
+								<div class="imageBack"></div>
+								<p class="projectBack-p">Short Description</p>
+								<a href="http://">Link to project</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- project 3 -->
+				<div class="project col-lg-4 col-md-6">
+					<div
+						class="flip-container"
+						ontouchstart="this.classList.toggle('hover');"
+					>
+						<div class="flipper">
+							<div class="cardFront">
+								<div class="imageFront"></div>
+								<h4 class="frontText">
+									<span class="textBackgroundPadding">The Forest Hiker</span>
+								</h4>
+							</div>
+							<div class="cardBack">
+								<h1 class="projectBack-h1">Project 3 Title</h1>
+								<div class="imageBack"></div>
+								<p class="projectBack-p">Short Description</p>
+								<a href="http://">Link to project</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ******************************Footer ******************************-->
+			<div class="row" id="footer">
+				<!-- background image -->
+				<footer class="footerImage">
+					<h2 class="col-md-12 text-center subTitle footerTitle">
+						&lt;Contact Me/&gt;
+					</h2>
+
+					<!-- email form -->
+					<div class="col-md-4"></div>
+					<form
+						class="col-md-6 centered formStyle"
+						action="https://getform.io/f/a422edc1-183a-45b8-9836-2bf2ae667202"
+						method="POST"
+						id="emailForm"
+						onkeyup="manage(this)"
+					>
+						<div class="form-group">
+							<label for="userEmail">Your Email Address</label>
+							<input
+								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+								name="email"
+								class="form-control"
+								id="userEmail"
+								placeholder="name@example.com"
+							/>
+						</div>
+						<div class="form-group">
+							<label for="subjectBar">Subject</label>
+							<input
+								type="text"
+								name="subject"
+								class="form-control"
+								id="subjectBar"
+								placeholder="Subject"
+							/>
+						</div>
+						<div class="form-group">
+							<label for="emailBody">Your Message</label>
+							<textarea
+								name="message"
+								class="form-control"
+								id="emailBody"
+								rows="5"
+								placeholder="Compose your message..."
+							></textarea>
+						</div>
+						<div class="form-group text-center">
+							<button
+								type="submit"
+								value="Send"
+								class="btn btn-primary formButton"
+								onclick="resetForms()"
+								id="submit"
+								disabled
+							>
+								Submit
+							</button>
+						</div>
+					</form>
+					<div class="col-md-4"></div>
+
+					<!-- bottom footer content -->
+					<div class="container-fluid bottomFooter">
+						<div class="bottomFooterInner row">
+							<div class="col-md-12 text-center bottomFooter-title">
+								<h3>Click for more details</h3>
+							</div>
+							<div class="col-md-3 col-4 text-center">
+								<a
+									data-toggle="collapse"
+									href="#Github"
+									aria-expanded="false"
+									aria-controls="Github"
+									class="footerIcon"
+									id="githubLink"
+								>
+									<i class="fa fa-github-square fa-4x" aria-hidden="true"></i>
+								</a>
+								<p id="Github" class="collapse footerIcon-text">
+									<a
+										href="https://github.com/knightrider909"
+										target="”_blank”"
+										style="color: white"
+										>GitHub Link</a
+									>
+								</p>
+							</div>
+
+							<div class="col-md-3 col-4 text-center">
+								<a
+									data-toggle="collapse"
+									href="#email"
+									aria-expanded="false"
+									aria-controls="email"
+									class="footerIcon"
+									id="emailLink"
+								>
+									<i class="fa fa-envelope-square fa-4x" aria-hidden="true"></i>
+								</a>
+								<p id="email" class="collapse footerIcon-text">
+									GiulioM@hotmail.co.uk
+								</p>
+							</div>
+
+							<div class="col-md-3 col-4 text-center">
+								<a
+									data-toggle="collapse"
+									href="#phoneNumber"
+									aria-expanded="false"
+									aria-controls="phoneNumber"
+									class="footerIcon"
+									id="phoneLink"
+								>
+									<i class="fa fa-phone-square fa-4x" aria-hidden="true"></i>
+								</a>
+								<p id="phoneNumber" class="collapse footerIcon-text">
+									07973210070
+								</p>
+							</div>
+						</div>
+					</div>
+				</footer>
 			</div>
 		</div>
 
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<!-- jQuery , Popper.js, Bootstrap JS, Font Awesome -->
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -216,14 +827,11 @@
 			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 			crossorigin="anonymous"
 		></script>
-		<!-- font awesome  -->
 		<script
 			src="https://kit.fontawesome.com/30511564b5.js"
 			crossorigin="anonymous"
 		></script>
-		<!-- javascript file -->
+		<!-- website javascript -->
 		<script src="javascript.js"></script>
-		<!-- sweetalert2 modals -->
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</body>
 </html>
