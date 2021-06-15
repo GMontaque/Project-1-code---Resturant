@@ -52,7 +52,7 @@
 								data-parent="#accordionExample"
 							>
 								<div class="reservationBackground">
-									<div
+									<form
 										class="form-group formStyle"
 										id="form"
 										onkeyup="reservationSubmit(this)"
@@ -71,18 +71,19 @@
 											placeholder="Name"
 											class="form-control"
 										/>
+										<!-- onkeypress="return /[a-z]/i.test(event.key) " -->
 
 										<label class="mgLeft" for="">Email Address</label>
 										<input
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
 											type="email"
 											class="form-control"
 											name="email"
 											id="email"
-											aria-describedby="emailHelpId"
 											placeholder="example@hotmail.co.uk"
 										/>
 
-										<label class="mgLeft" for="partySize">Party Size</label>
+										<label class="mgLeft" for="partySize">Group Size</label>
 										<select
 											name=""
 											class="form-control"
@@ -105,12 +106,16 @@
 											class="form-control"
 										/>
 
-										<label class="mgLeft" for="location">location</label>
+										<label class="mgLeft" for="location">Location</label>
 										<select
 											name="location"
 											class="location form-control"
 											id="location"
-										></select>
+										>
+											<option value="" disabled selected hidden>
+												See Below
+											</option>
+										</select>
 
 										<label class="mgLeft" for="contactNumber"
 											>Contact Number</label
@@ -141,7 +146,7 @@
 												Submit
 											</button>
 										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>

@@ -20,9 +20,32 @@ function reservationSubmit() {
 		contactNumber != ""
 	) {
 		submitBtn.disabled = false;
+		// } else if ((email.oninvalid = true)) {
+		// 	alert(
+		// 		"Email address should be entered in the following format: email@tester.com"
+		// 	);
 	} else {
 		submitBtn.disabled = true;
 	}
+}
+
+// function emailAddress() {
+// 	var input = document.getElementById("email");
+// 	input.oninvalid = function (event) {
+// 		event.target.setCustomValidity(
+// 			"Email address should be entered in the following format: email@tester.com"
+// 		);
+// 	};
+// }
+// emailAddress();
+
+// input name letters only
+let nameInput = document.querySelector("#name");
+nameInput.addEventListener("keypress", alphaOnly);
+
+function alphaOnly(event) {
+	let key = event.keyCode;
+	return (key >= 65 && key <= 90) || key == 8 || key == 32;
 }
 
 // submit button reservation form
@@ -92,27 +115,21 @@ function confirmRev(formValue) {
 		$("#form").children("input").val("");
 		$("#form").children("textarea").val("");
 		$("#form").children("select").val("");
+		reservationSubmit();
 	}
 }
 
 // party size feild
 $(function () {
 	var $select = $("#partySize");
-	for (i = 0; i <= 20; i++) {
+	for (i = 1; i <= 20; i++) {
 		$select.append($("<option></option>").val(i).html(i));
 	}
 });
 
 // location field
 
-let resturantLocations = [
-	"See Below",
-	"London",
-	"Stamford",
-	"Glasgow",
-	"Oslo",
-	"Rome",
-];
+let resturantLocations = ["London", "Stamford", "Glasgow", "Oslo", "Rome"];
 
 $(function () {
 	var $select = $("#location");
@@ -124,6 +141,24 @@ $(function () {
 		);
 	}
 });
+
+// date field
+function dateCheck() {
+	let dtToday = new Date();
+
+	let month = dtToday.getMonth() + 1;
+	let day = dtToday.getDate();
+	let year = dtToday.getFullYear();
+	if (month < 10) month = "0" + month.toString();
+	if (day < 10) day = "0" + day.toString();
+
+	let maxDate = year + "-" + month + "-" + day;
+
+	let inputDate = document.getElementById("date");
+	inputDate.setAttribute("min", maxDate);
+}
+
+dateCheck();
 
 // save reservation to localstorage
 
@@ -323,12 +358,21 @@ function popUp() {
 										/>
 
 										<label for="location">location</label>
-										<input
+										<select
 											name="location"
 											class="location form-control"
 											id="locations"
 											value="${location}"
-										></input>
+										>	
+										<option value="" disabled selected hidden>
+										See Below </option>
+										<option value="London">London</option>
+										<option value="Stamford">Stamford</option>
+										<option value="Glasgow">Glasgow</option>
+										<option value="Oslo">Oslo</option>
+										<option value="Rome">Rome</option>
+									</select>
+									
 
 										<label for="contactNumber">Contact Number</label>
 										<input
