@@ -2,7 +2,7 @@
 
 // ******************************* making a reservation *******************************
 
-// input validation
+// input validation disable button
 
 function reservationSubmit() {
 	let name = document.getElementById("name").value;
@@ -22,38 +22,33 @@ function reservationSubmit() {
 		contactNumber != ""
 	) {
 		submitBtn.disabled = false;
-		// } else if ((email.oninvalid = true)) {
-		// 	alert(
-		// 		"Email address should be entered in the following format: email@tester.com"
-		// 	);
 	} else {
 		submitBtn.disabled = true;
 	}
 }
 
-// function emailAddress() {
-// 	var input = document.getElementById("email");
-// 	input.oninvalid = function (event) {
-// 		event.target.setCustomValidity(
-// 			"Email address should be entered in the following format: email@tester.com"
-// 		);
-// 	};
-// }
-// emailAddress();
-
-// input name letters only
-let nameInput = document.querySelector("#name");
-nameInput.addEventListener("keypress", alphaOnly);
-
-function alphaOnly(event) {
-	let key = event.keyCode;
-	return (key >= 65 && key <= 90) || key == 8 || key == 32;
-}
-
 // submit button reservation form
 
 let submitBtn = document.querySelector("#resSubmit");
-submitBtn.addEventListener("click", reservationResult);
+submitBtn.addEventListener("click", ValidateEmail);
+
+// email format check
+
+function ValidateEmail() {
+	let validRegex =
+		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+	if (email.value.match(validRegex)) {
+		reservationResult();
+	} else {
+		let input = document.getElementById("email");
+		input.oninvalid = function (event) {
+			event.target.setCustomValidity(
+				"Email address should be entered in the following format: email@tester.com"
+			);
+		};
+	}
+}
 
 // reservation fields
 
@@ -116,7 +111,7 @@ function confirmRev(formValue) {
 	if (true) {
 		$("#form").children("input").val("");
 		$("#form").children("textarea").val("");
-		$("#form").children("select").val("");
+		$("select").prop("selectedIndex", 0);
 		reservationSubmit();
 	}
 }
