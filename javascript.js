@@ -300,7 +300,7 @@ function popUp() {
 				Swal.fire({
 					icon: "info",
 					title: "info!",
-					html: `<h1>Make a Reservation</h1>
+					html: ` 			<h1>Make a Reservation</h1>
 										<label for="name">Name</label>
 										<input
 											type="text"
@@ -309,6 +309,7 @@ function popUp() {
 											value="${name}"
 											placeholder="Name"
 											class="form-control"
+											onkeypress="return /([a-z\' '])/i.test(event.key)"
 										/>
 
 										<label for="">Email Address</label>
@@ -322,19 +323,23 @@ function popUp() {
 											placeholder="example@hotmail.co.uk"
 										/>
 
-										<label for="partySize">Party Size</label>
+										<label for="partySize">Group Size</label>
+										<select
+											name=""
+											class="form-control"
+											id="partySizes"
+										>
+										<option value="${party}" disabled selected hidden>
+										${party} </option>
+										</select>
+
+										<!-- <label for="partySize">Group Size</label>
 										<input
 											name=""
 											value="${party}"
 											class="form-control"
 											id="partySizes"
-										></input>
-
-										<!-- <select
-										name=""
-										class="form-control"
-										id="partySizes"
-									></select> -->
+										></input> -->
 										
 										<label for="date">Date</label>
 										<input
@@ -359,16 +364,15 @@ function popUp() {
 											name="location"
 											class="location form-control"
 											id="locations"
-											value="${location}"
 										>	
-										<option value="" disabled selected hidden>
-										See Below </option>
+										<option value="${location} " disabled selected hidden>
+										${location} </option>
 										<option value="London">London</option>
 										<option value="Stamford">Stamford</option>
 										<option value="Glasgow">Glasgow</option>
 										<option value="Oslo">Oslo</option>
 										<option value="Rome">Rome</option>
-									</select>
+										</select>
 									
 
 										<label for="contactNumber">Contact Number</label>
@@ -379,6 +383,7 @@ function popUp() {
 											value="${phoneNumber}"
 											placeholder="020 5701 7892"
 											class="form-control"
+											onkeypress="return /([0-9\' '])/i.test(event.key)"
 										/>
 
 										<label for="my-textarea">Text</label>
@@ -410,3 +415,13 @@ function popUp() {
 			}
 		});
 }
+function partySizeCange() {
+	// party size feild
+
+	let $select = $("#partySizes");
+	for (i = 1; i <= 20; i++) {
+		$select.append($("<option></option>").val(i).html(i));
+	}
+}
+
+partySizeCange();
