@@ -300,7 +300,9 @@ function popUp() {
 				Swal.fire({
 					icon: "info",
 					title: "info!",
-					html: ` 			<h1>Make a Reservation</h1>
+					html: ` 			
+					<form>
+					<h1>Make a Reservation</h1>
 										<label for="name">Name</label>
 										<input
 											type="text"
@@ -324,22 +326,13 @@ function popUp() {
 										/>
 
 										<label for="partySize">Group Size</label>
-										<select
-											name=""
-											class="form-control"
-											id="partySizes"
-										>
-										<option value="${party}" disabled selected hidden>
-										${party} </option>
-										</select>
-
-										<!-- <label for="partySize">Group Size</label>
 										<input
 											name=""
 											value="${party}"
 											class="form-control"
 											id="partySizes"
-										></input> -->
+											type="number" 
+										></input> 
 										
 										<label for="date">Date</label>
 										<input
@@ -393,7 +386,30 @@ function popUp() {
 											name="textarea"
 											rows="3"
 											class="form-control"
-										>${textBox}</textarea>`,
+										>${textBox}</textarea>
+										</form>`,
+					preConfirm: () => {
+						let login = Swal.getPopup().querySelector("#partySizes").value;
+
+						if (login > 20 || login < 1) {
+							console.log(login);
+							Swal.showValidationMessage(
+								"We only accept group bookings between 1 and 20 people"
+							);
+						}
+
+						let emailcheckers = Swal.getPopup().querySelector("#emails");
+
+						let validRegex =
+							/(^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$)/;
+
+						if (emailcheckers.value.match(validRegex)) {
+							Swal.showValidationMessage(
+								"Email address should be entered in the following format: email@tester.com"
+							);
+						}
+					},
+					confirmButtonText: "Submit Changes",
 				}).then(() => {
 					let reservationValuesNew = {
 						name: document.getElementById("names").value,
@@ -429,13 +445,33 @@ function popUp() {
 		});
 }
 
-function partySizeCange() {
-	// party size feild
+function nameTest() {
+	Swal.fire({
+		title: "Login Form",
+		html: `<input type="email" id="login" class="swal2-input" placeholder="Username">`,
 
-	let $select = $("#partySizes");
-	for (i = 1; i <= 20; i++) {
-		$select.append($("<option></option>").val(i).html(i));
-	}
+		confirmButtonText: "Sign in",
+
+		preConfirm: (event) => {
+			let emailcheckers = Swal.getPopup().querySelector("#login");
+
+			function testreturn() {
+				return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(
+					event.key
+				);
+			}
+
+			if (!emailcheckers.value.match(testreturn())) {
+				Swal.showValidationMessage(
+					"Email address should be entered in the following format: email@tester.com"
+				);
+			}
+		},
+	}).then((result) => {
+		Swal.fire({
+			icon: "info",
+			title: "info!",
+			html: "works",
+		});
+	});
 }
-
-partySizeCange();
