@@ -58,12 +58,7 @@
 										id="form"
 										onkeyup="reservationSubmit(this)"
 									>
-										<h1
-											class="mgLeft reservationTitle"
-											style="text-align: center"
-										>
-											Make a Reservation
-										</h1>
+										<h1 class="mgLeft reservationTitle">Make a Reservation</h1>
 
 										<label class="mgLeft" for="name">Name</label>
 										<input
@@ -179,13 +174,7 @@
 								<div class="checkingBackground">
 									<h2 class="checkResTitle">Checking a Reservation</h2>
 
-									<h4
-										style="
-											text-align: center;
-											color: white;
-											margin-bottom: 2rem;
-										"
-									>
+									<h4 class="checkResTitle-SubHead">
 										Enter your Reservation Number to check your booking and make
 										any changes.
 									</h4>
@@ -197,7 +186,7 @@
 											id=""
 											class="resCheck-input"
 											placeholder="Reservation"
-											onkeyup="manage(this)"
+											onkeyup="resetResCheckBtn()"
 										/>
 										<button type="submit" class="resCheck-button" disabled>
 											<i class="fa fa-plus-square" aria-hidden="true"></i>

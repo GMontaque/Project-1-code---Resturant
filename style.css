@@ -53,6 +53,10 @@ html {
 	margin-left: 5%;
 }
 
+.reservationTitle {
+	text-align: center;
+}
+
 input,
 select {
 	margin-bottom: 1rem;
@@ -139,6 +143,12 @@ textarea {
 	text-align: center;
 	margin: 3rem 0;
 	color: white;
+}
+
+.checkResTitle-SubHead {
+	text-align: center;
+	color: white;
+	margin-bottom: 2rem;
 }
 
 .resCheckInput {

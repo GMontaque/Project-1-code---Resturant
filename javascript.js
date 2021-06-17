@@ -167,7 +167,7 @@ function saveRevLocal(resResult) {
 
 // input validation
 
-function manage() {
+function resetResCheckBtn() {
 	if (refValue.value != "") {
 		modal.disabled = false;
 	} else {
@@ -248,6 +248,9 @@ function checkingRes(event) {
 	searchResults.appendChild(reservationDiv);
 	refValue.value = "";
 	console.log(reservationDiv);
+
+	// reset reservation check button
+	resetResCheckBtn();
 
 	let completebtn = document.querySelector(".complete-btn");
 	if (completebtn) {
