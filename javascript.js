@@ -225,13 +225,13 @@ function checkingRes(event) {
 
 	// make a change button
 	let completedButton = document.createElement("button");
-	completedButton.innerHTML = '<i class="fas fa-redo-alt"></i>';
+	completedButton.innerHTML = '<i class="fas fa-edit"></i>' + " Edit";
 	completedButton.classList.add("complete-btn");
 	rightInnerDiv.appendChild(completedButton);
 
 	// delete button
 	let trashButton = document.createElement("button");
-	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+	trashButton.innerHTML = '<i class="far fa-window-close"></i>' + " Close";
 	trashButton.classList.add("trash-btn");
 	rightInnerDiv.appendChild(trashButton);
 
@@ -406,15 +406,29 @@ function popUp() {
 						text: document.getElementById("my-textareas").value,
 						reservation: reservation,
 					};
-					searchResults.remove();
+
+					let reservationResultsDiv = searchResults.getElementsByTagName("div");
+					reservationResultsDiv[0].remove();
+
 					localStorage.setItem(
 						reservationNum,
 						JSON.stringify(reservationValuesNew)
 					);
+
+					Swal.fire({
+						icon: "success",
+						title: `Your Reservation has been updated`,
+						html: `Reservation Number: ${reservationValuesNew.reservation} 
+						<br>
+						<br>
+						If you wish to make any further changes simple re-enter your reservation number, shown above in the search bar.`,
+						confirmButtonText: "Close",
+					});
 				});
 			}
 		});
 }
+
 function partySizeCange() {
 	// party size feild
 
