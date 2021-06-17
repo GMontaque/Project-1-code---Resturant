@@ -118,7 +118,7 @@ function confirmRev(formValue) {
 
 // party size feild
 $(function () {
-	var $select = $("#partySize");
+	let $select = $("#partySize");
 	for (i = 1; i <= 20; i++) {
 		$select.append($("<option></option>").val(i).html(i));
 	}
@@ -129,7 +129,7 @@ $(function () {
 let resturantLocations = ["London", "Stamford", "Glasgow", "Oslo", "Rome"];
 
 $(function () {
-	var $select = $("#location");
+	let $select = $("#location");
 	for (i = 0; i < resturantLocations.length; i++) {
 		$select.append(
 			$("<option></option>")
@@ -270,6 +270,7 @@ function popUp() {
 	let phoneNumber = storedVal.contactNumber;
 	let textBox = storedVal.text;
 	let reservation = storedVal.reservation;
+
 	Swal.fire({
 		icon: "success",
 		title: `Please see below reservation details
@@ -286,18 +287,19 @@ function popUp() {
 		<br/>
 		Location: ${location}`,
 		showCancelButton: true,
-		confirmButtonText: "Close",
-		cancelButtonText: `<a 
+		confirmButtonText: `<a 
 		style="color: white;"
 		href="#collapseOne"
 		>Make a Change</a
 	>`,
+		cancelButtonText: "Close",
 		cancelButtonColor: "red",
 	})
 		// submitting new changes
 		.then((result) => {
-			if (!result.isConfirmed) {
+			if (result.isConfirmed) {
 				Swal.fire({
+					allowOutsideClick: false,
 					icon: "info",
 					title: "info!",
 					html: ` 			
@@ -398,12 +400,15 @@ function popUp() {
 							);
 						}
 
-						let emailcheckers = Swal.getPopup().querySelector("#emails");
-
+						// email validate
+						let emailcheckers = document.querySelector("#emails").value;
 						let validRegex =
-							/(^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$)/;
+							/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+						console.log(emailcheckers);
 
-						if (emailcheckers.value.match(validRegex)) {
+						if (emailcheckers.match(validRegex)) {
+							return null;
+						} else {
 							Swal.showValidationMessage(
 								"Email address should be entered in the following format: email@tester.com"
 							);
@@ -441,37 +446,24 @@ function popUp() {
 						confirmButtonText: "Close",
 					});
 				});
+				// date setting
+				let dtToday = new Date();
+
+				let month = dtToday.getMonth() + 1;
+				let day = dtToday.getDate();
+				let year = dtToday.getFullYear();
+				if (month < 10) month = "0" + month.toString();
+				if (day < 10) day = "0" + day.toString();
+
+				let maxDate = year + "-" + month + "-" + day;
+				let inputDates = document.getElementById("dates");
+				inputDates.setAttribute("min", maxDate);
+
+				// party size
+				let $select = $("#partySizes");
+				for (i = 1; i <= 20; i++) {
+					$select.append($("<option></option>").val(i).html(i));
+				}
 			}
 		});
-}
-
-function nameTest() {
-	Swal.fire({
-		title: "Login Form",
-		html: `<input type="email" id="login" class="swal2-input" placeholder="Username">`,
-
-		confirmButtonText: "Sign in",
-
-		preConfirm: (event) => {
-			let emailcheckers = Swal.getPopup().querySelector("#login");
-
-			function testreturn() {
-				return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(
-					event.key
-				);
-			}
-
-			if (!emailcheckers.value.match(testreturn())) {
-				Swal.showValidationMessage(
-					"Email address should be entered in the following format: email@tester.com"
-				);
-			}
-		},
-	}).then((result) => {
-		Swal.fire({
-			icon: "info",
-			title: "info!",
-			html: "works",
-		});
-	});
 }
