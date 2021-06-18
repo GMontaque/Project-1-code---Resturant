@@ -247,7 +247,7 @@ function checkingRes(event) {
 	reservationDiv.appendChild(rightInnerDiv);
 	searchResults.appendChild(reservationDiv);
 	refValue.value = "";
-	console.log(reservationDiv);
+	// console.log(reservationDiv);
 
 	// reset reservation check button
 	resetResCheckBtn();
@@ -261,9 +261,9 @@ function checkingRes(event) {
 // shows full details of reservation and make changes
 function popUp() {
 	let reservationNum = document.querySelector(".resNumber").innerText;
-	console.log(reservationNum);
+	// console.log(reservationNum);
 	let storedVal = JSON.parse(localStorage.getItem(reservationNum));
-	console.log(storedVal);
+	// console.log(storedVal);
 	let name = storedVal.name;
 	let email = storedVal.email;
 	let party = storedVal.party;
@@ -397,7 +397,7 @@ function popUp() {
 						let login = Swal.getPopup().querySelector("#partySizes").value;
 
 						if (login > 20 || login < 1) {
-							console.log(login);
+							// console.log(login);
 							Swal.showValidationMessage(
 								"We only accept group bookings between 1 and 20 people"
 							);
@@ -407,7 +407,7 @@ function popUp() {
 						let emailcheckers = document.querySelector("#emails").value;
 						let validRegex =
 							/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-						console.log(emailcheckers);
+						// console.log(emailcheckers);
 
 						if (emailcheckers.match(validRegex)) {
 							return null;
