@@ -225,7 +225,8 @@ function checkingRes(event) {
 
 	// make a change button
 	let completedButton = document.createElement("button");
-	completedButton.innerHTML = '<i class="fas fa-edit"></i>' + " Edit";
+	completedButton.innerHTML =
+		'<i class="fas fa-edit"></i>' + " Full Details/Edit";
 	completedButton.classList.add("complete-btn");
 	rightInnerDiv.appendChild(completedButton);
 
