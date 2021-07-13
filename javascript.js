@@ -347,6 +347,7 @@ function popUp() {
 											value="${date}"
 											id="dates"
 											class="form-control"
+											onkeydown="return false;"
 										/>
 
 										<label for="time">Time</label>
