@@ -72,11 +72,13 @@
 
 										<label class="mgLeft" for="">Email Address</label>
 										<input
-											type="email"
+											type="text"
 											class="form-control"
 											name="email"
 											id="email"
 											placeholder="example@hotmail.co.uk"
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
+											title="Email address should be entered in the following format: email@tester.com"
 										/>
 
 										<label class="mgLeft" for="partySize">Group Size</label>
