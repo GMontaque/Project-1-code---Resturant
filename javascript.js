@@ -32,7 +32,7 @@ function reservationSubmit() {
 let submitBtn = document.querySelector("#resSubmit");
 submitBtn.addEventListener("click", validateForm);
 
-// email format check
+// form validation - email valdiation happening on email input element
 
 function validateForm() {
 	let formResults = document.querySelector("#form");
@@ -43,40 +43,6 @@ function validateForm() {
 		null;
 	}
 }
-
-// function ValidateEmail() {
-// 	let validRegex =
-// 		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-// 	if (email.value.match(validRegex)) {
-// 		reservationResult();
-// 	} else {
-// 		let input = document.getElementById("email");
-// 		input.oninvalid = function (event) {
-// 			event.target.setCustomValidity(
-// 				"Email address should be entered in the following format: email@tester.com"
-// 			);
-// 		};
-// 	}
-// }
-
-// function ValidateEmail(inputText) {
-// 	console.log(inputText);
-// 	var mailformat =
-// 		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-// 	if (inputText.value.match(mailformat)) {
-// 		alert("Valid email address!");
-
-// 		return true;
-// 	} else {
-// 		let input = document.getElementById("email");
-// 		input.oninvalid = function (event) {
-// 			event.target.setCustomValidity(
-// 				"Email address should be entered in the following format: email@tester.com"
-// 			);
-// 		};
-// 	}
-// }
 
 // reservation fields
 
