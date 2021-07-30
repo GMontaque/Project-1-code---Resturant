@@ -127,7 +127,7 @@ textarea {
 	.col-md-8 {
 		flex: 80%;
 		max-width: 90%;
-		margin: 0rem 4rem;
+		margin: 0rem 5vw;
 	}
 }
 
@@ -143,6 +143,7 @@ textarea {
 	.col-md-8 {
 		flex: none;
 		max-width: none;
+		margin: 0rem;
 	}
 }
 
